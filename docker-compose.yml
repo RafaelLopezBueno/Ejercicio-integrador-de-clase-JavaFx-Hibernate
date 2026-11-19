@@ -1,0 +1,13 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: AccesoADatos
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd
+      MYSQL_DATABASE: ad
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pwd
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
